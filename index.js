@@ -4,7 +4,7 @@ const path = require('path')
 const {createRestApi} = require('./backend/api');
 const {createViewApi} = require('./fronted/api');
 
-const port = 3000;           // port used to run server
+const port = 8080;           // port used to run server
 const app = express();
 
 app.use(express.json());
