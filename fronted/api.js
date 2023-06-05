@@ -2,10 +2,10 @@ const path = require('path');
 
 const createViewApi = app => {
     app.get('/', async (request, response) => {
-        if (request.userId) {
+        if (request.session.id === 1) {
             return response.sendFile(path.join(__dirname, 'superAdminSite.html'));
         }
-        else if (request.userId) {
+        else if (request.session.id) {
             return response.sendFile(path.join(__dirname, 'site.html'));
         }
         else {
