@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <section class="vh-100" style="background-color: #508bfc;">
+  <section class="vh-100" style="background-color: #508bfc;" id="hide">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem;">
@@ -91,10 +91,12 @@
           location.reload();
         } else {
           alert('User logout operation error (message: ' + data.message + ').');
+          hide.style.opacity = 0;
         }
       } catch (e) {
         console.error(e);
         alert('Request error!');
+        hide.style.opacity = 0;
       }
     };
 
