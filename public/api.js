@@ -1,5 +1,4 @@
 const path = require('path');
-const express = require('express')
 
 const createViewApi = app => {
     app.get('/', async (request, response) => {

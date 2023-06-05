@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path')
 const {createRestApi} = require('./backend/api');
-const {createViewApi} = require('./fronted/api');
+const {createViewApi} = require('./public/api');
 
 const port = 8080;           // port used to run server
 const app = express();
@@ -25,7 +25,7 @@ app.use(
     })
 );
 
-app.use(express.static(path.join(__dirname, 'fronted')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 createRestApi(app);
 createViewApi(app);
