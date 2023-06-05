@@ -8,8 +8,8 @@
     ],
     "routes": [
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "src": "/dev/(.*)",
+            "dest": "/dev/$1"
         },
         {
             "src": "/(.*)",
