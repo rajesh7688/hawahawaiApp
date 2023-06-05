@@ -1,15 +1,22 @@
 {
-    "version": 2,
-    "builds": [
+    "redirects": [
+      { "source": "/index.html", "destination": "/index.html" },
+      { "source": "/site", "destination": "/public/site", "permanent": false },
       {
-        "src": "index.js",
-        "use": "@vercel/node"
+        "source": "/public",
+        "destination": "https://github.com/vercel/vercel"
+      },
+      {
+        "source": "/:path((?!uk/).*)",
+        "has": [
+          {
+            "type": "header",
+            "key": "x-vercel-ip-country",
+            "value": "GB"
+          }
+        ],
+        "destination": "/uk/:path*",
+        "permanent": false
       }
-    ],
-    "routes": [    
-      { "src": "/static/(.*)", "dest": "/static/$1" },
-      { "src": "/(.*)", "dest": "/index.js" }
-    ],
-    "rewrites": [{ "source": "/r/:id", "destination": "/api/redirect?id=:id" }]
+    ]
   }
-  
