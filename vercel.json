@@ -9,6 +9,7 @@
     "routes": [    
       { "src": "/static/(.*)", "dest": "/static/$1" },
       { "src": "/(.*)", "dest": "/index.js" }
-    ]
+    ],
+    "rewrites": [{ "source": "/r/:id", "destination": "/api/redirect?id=:id" }]
   }
   
