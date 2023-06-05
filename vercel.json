@@ -7,7 +7,7 @@
       }
     ],
     "routes": [
-      { "handle": "filesystem", "src": "/favicon.ico", "method": "GET" },
+      
       { "src": "/static/(.*)", "dest": "/static/$1" },
       { "src": "/(.*)", "dest": "/index.js" }
     ]
