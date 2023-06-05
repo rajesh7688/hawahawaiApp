@@ -1,12 +1,11 @@
 const mysql = require('mysql2');
 
 const config = {
-    user: 'root',
-    password: '12@Rajesh',
+    user: 'buwfa75nii6kj2ks712c',
+    password: 'ckjFVZbeNK4t1s95L0B',
     database: 'hawahawai',
-    host: 'localhost',
-    port: 3306,
-    multipleStatements: true,
+    host: 'buwfa75nii6kj2ks712c-mysql.services.clever-cloud.com',
+    port: 20969,
 };
 
 const createConnection = () => {
