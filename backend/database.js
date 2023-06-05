@@ -46,7 +46,6 @@ const createConnection = () => {
     })
 };
 
-console.log(createConnection())
 module.exports = {
     createConnection
 };
