@@ -5,7 +5,7 @@ const createViewApi = app => {
     app.get('/', async (request, response) => {
         if (request.session.userId === 1) {
             // return response.sendFile(path.join(__dirname, 'superAdminSite.html'));
-            return app.use(express.static('superAdminSite.html'))
+            return app.use(express.static('/fronted'))
         }
         else if (request.session.userId) {
             return response.sendFile(path.join(__dirname, 'site.html'));
