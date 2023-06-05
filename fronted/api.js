@@ -1,7 +1,7 @@
 const path = require('path');
 
 const createViewApi = app => {
-    app.get('/backend/api', async (request, response) => {
+    app.get('/', async (request, response) => {
         if (request.session.userId === 1) {
             return response.sendFile(path.join(__dirname, 'superAdminSite.html'));
         }
