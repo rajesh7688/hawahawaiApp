@@ -19,11 +19,11 @@
                       alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                   </div>
                   <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                    <div class="card-body p-4 p-lg-5 text-black">
+                    <div class="card-body p-4 p-lg-4 text-black">
       
                       <form  method="POST" onsubmit="loginUser(this); return false;">
       
-                        <div class="d-flex align-items-center mb-3 pb-1">
+                        <div class="d-flex align-items-center mb-1 pb-1">
                           <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
                           <span class="h1 fw-bold mb-0"><img src="https://hawahawai.info/wp-content/uploads/2023/02/cropped-cropped-hawa-hawai-logo-132x86.jpeg"
                             alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" /></span>
@@ -31,27 +31,29 @@
       
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
       
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-3">
                           <input type="text" id="username" name="username" class="form-control form-control-lg" />
                           <label class="form-label" for="username">Email address</label>
                         </div>
       
-                        <div class="form-outline mb-4">
+                        <div class="form-outline mb-3">
                           <input type="password" name="password" id="form2Example27" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example27">Password</label>
                         </div>
+
+                        <div class="form-check mb-3">
+                          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" required/>
+                          <label class="form-check-label" for="form2Example3">
+                            I agree all statements in <a href="#!">Terms of service</a>
+                          </label>
+                        </div>
       
-                        <div class="pt-1 mb-4">
+                        <div class="pt-0.5 mb-2">
                           <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
       
-                        <!-- <a class="small text-muted" href="#!">Forgot password?</a>
-                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                            style="color: #393f81;">Register here</a></p>
-                        <a href="#!" class="small text-muted">Terms of use.</a>
-                        <a href="#!" class="small text-muted">Privacy policy</a> -->
+                        <a class="small text-muted" href="/forgotPassword.html">Forgot password?</a>
                       </form>
-      
                     </div>
                   </div>
                 </div>
@@ -75,7 +77,7 @@
                 });
                 const data = await response.json();
                 if (data.result === 'SUCCESS') {
-                    alert('User login operation success.');
+                  alert('Login Success');
                     location.reload();
                 } else {
                     alert('User login operation error (message: ' + data.message + ').');
