@@ -124,7 +124,7 @@
                             <td id=""><a href="tel:+${data.email}"><i class="fa-solid fa-phone"></i></a></td>
                             <td id="email" style="display: none;">${data.email}</td>
                             <td id="member">${data.member}</td>
-                            
+                            <td id="mode" style="display: none">${data.mode}</td>
                             <td id="amount" style="display: none;">${data.amount}</td>
                             <td id="totalAmount" style="display: none;">${data.totalAmount}</td>
                             <td id="date" style="display: none;">${data.date}</td>
@@ -247,6 +247,7 @@
             const amount = row.querySelector('#amount').textContent;
             const totalAmount = row.querySelector('#totalAmount').textContent;
             const date = row.querySelector('#date').textContent;
+            const mode = row.querySelector('#mode').textContent;
 
             const currentDate = new Date();
             const currentHours = currentDate.getHours();
@@ -263,6 +264,7 @@
                 totalAmount: totalAmount,
                 date: date,
                 boardTime: boardTime,
+                mode: mode,
             };
 
             sendData(data);

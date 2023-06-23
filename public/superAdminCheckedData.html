@@ -36,7 +36,7 @@
 
 <body>
     <div class="container">
-        <a href="./superAdminSite.html" target="_self"
+        <a href="javascript:void(0);" onclick="goBack()"
             style="text-decoration: none; margin-right: 20px; font-size: 25px;"><i class="fa-solid fa-house"></i></a>
 
         <div>
@@ -58,6 +58,7 @@
                 <th>Board Time</th>
                 <!-- <th>Amount</th>
                 <th>Total Amount</th> -->
+                <th>Payment mode</th>
                 <th>Date</th>
                 <th>Bill</th>
             </tr>
@@ -74,8 +75,11 @@
         </div>
     </table>
 
-
     <script>
+
+        function goBack() {
+            window.history.back();
+        }
 
         const dataContainer = document.getElementById('myUL');
         // showing store data and fetching 
@@ -104,6 +108,7 @@
                             <td id="email" style="display: none;">${data.email}</td>
                             <td id="member">${data.member}</td>
                             <td id="boardTime">${data.boardTime}</td>
+                            <td id="mode" >${data.mode}</td>
                             <td id="amount" style="display: none">${data.amount}</td>
                             <td id="totalAmount" style="display: none">${data.totalAmount}</td>
                             <td id="date">${data.date}</td>
@@ -156,7 +161,7 @@
         totalPax()
 
 
-        // send data to checked in db
+        // send data to billed table
 
         const sendData = async (data) => {
             try {
@@ -196,7 +201,7 @@
             const amount = row.querySelector('#amount').textContent;
             const totalAmount = row.querySelector('#totalAmount').textContent;
             const date = row.querySelector('#date').textContent;
-
+            const mode = row.querySelector('#mode').textContent;
             console.log(email)
 
             const data = {
@@ -206,12 +211,12 @@
                 amount: amount,
                 totalAmount: totalAmount,
                 date: date,
-
+                mode: mode,
             };
 
             sendData(data);
 
-            button.innerHTML = 'Checked In';
+            button.innerHTML = 'bill';
             button.style.background = 'orange';
 
             const memberMinus = parseInt(member); // Get the number of pax from the row
@@ -220,7 +225,7 @@
 
             totalPax(totalPaxValue);  // Update the displayed total Pax count
 
-            button.innerHTML = 'Checked In';
+            button.innerHTML = 'bill';
             button.style.background = 'orange';
             button.disabled = true;
         }

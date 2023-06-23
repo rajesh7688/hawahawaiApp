@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
 const config = {
-    user: 'umg3v7e23v8dhdzx',
-    password: 'UyMDigSkai47blsWhOj6',
-    database: 'byd38mnmeuydkemyqrbb',
-    host: 'byd38mnmeuydkemyqrbb-mysql.services.clever-cloud.com',
+    user: 'root',
+    password: '12Rajesh',
+    database: 'database',
+    host: 'localhost',
     port: 3306,
 };
 

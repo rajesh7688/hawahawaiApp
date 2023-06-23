@@ -36,7 +36,7 @@
 
 <body>
     <div class="container">
-        <a href="./managerData.html" target="_self"
+        <a href="javascript:void(0);" onclick="goBack()"
             style="text-decoration: none; margin-right: 20px; font-size: 25px;"><i class="fa-solid fa-house"></i></a>
 
         <div>
@@ -77,6 +77,10 @@
 
     <script>
 
+        function goBack() {
+            window.history.back();
+        }
+
         const dataContainer = document.getElementById('myUL');
         // showing store data and fetching 
         const showData = async () => {
@@ -98,9 +102,10 @@
                     for (const data of formData) {
                         const htmlContent = `
                         <tr id="hide">
-                            <td id="name">${data.id}</td>
+                            <td id="id">${data.id}</td>
                             <td id="name">${data.name}</td>
                             <td id=""><a href="tel:+${data.email}"><i class="fa-solid fa-phone"></i></a></td>
+                            <td id="email" style="display: none">${data.email}</td>
                             <td id="member">${data.member}</td>
                             <td id="boardTime">${data.boardTime}</td>
                             <td id="amount" style="display: none">${data.amount}</td>

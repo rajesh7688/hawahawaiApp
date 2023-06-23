@@ -36,7 +36,7 @@
 
 <body>
     <div class="container">
-        <a href="./superAdminSite.html" target="_self"
+        <a href="javascript:void(0);" onclick="goBack()"
             style="text-decoration: none; margin-right: 20px; font-size: 25px;"><i class="fa-solid fa-house"></i></a>
 
         <div>
@@ -59,6 +59,7 @@
                 <th>Amount</th>
                 <th>Total Amount</th>
                 <th>Date</th>
+                <th>Payment mode</th>
             </tr>
         </thead>
         <tbody id="myUL">
@@ -79,7 +80,7 @@
         <h4 id="yesterdayAmount"></h4>
     </div>
 
-    <table >
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -88,6 +89,7 @@
                 <th>Amount</th>
                 <th>Total Amount</th>
                 <th>Date</th>
+                <th>Payment mode</th>
             </tr>
         </thead>
         <tbody id="yesterdayData">
@@ -100,7 +102,7 @@
         <h4 id="weekAmount"></h4>
     </div>
 
-    <table >
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -109,6 +111,7 @@
                 <th>Amount</th>
                 <th>Total Amount</th>
                 <th>Date</th>
+                <th>Payment mode</th>
             </tr>
         </thead>
         <tbody id="weekData">
@@ -118,6 +121,10 @@
 
 
     <script>
+
+        function goBack() {
+            window.history.back();
+        }
 
         const dataContainer = document.getElementById('myUL');
         // present day data
@@ -153,8 +160,7 @@
                             <td id="amount">${data.amount}</td>
                             <td id="totalAmount">${data.totalAmount}</td>
                             <td id="date">${data.date}</td>
-                           
-
+                            <td id="date">${data.mode}</td>
                             <!-- <td><button onclick="deleteCustomer(${data.id})" class="btn bg-danger">Delete</button></td> -->
                             <!-- <td><a class="btn btn-primary" href="/editCustomer.html" role="button">Edit</a></td> -->
                         </tr>`;
@@ -200,7 +206,7 @@
         window.addEventListener('DOMContentLoad', totalAmount)
 
         totalAmount()
-        
+
 
         // yesterday data 
         const showYesterdayData = async () => {
@@ -238,7 +244,7 @@
                             <td id="amount">${data.amount}</td>
                             <td id="totalAmount">${data.totalAmount}</td>
                             <td id="date">${data.date}</td>
-                           
+                            <td id="date">${data.mode}</td>
 
                             <!-- <td><button onclick="deleteCustomer(${data.id})" class="btn bg-danger">Delete</button></td> -->
                             <!-- <td><a class="btn btn-primary" href="/editCustomer.html" role="button">Edit</a></td> -->
@@ -262,8 +268,8 @@
         window.addEventListener('DOMContentLoad', showYesterdayData)
         showYesterdayData()
 
-         // yesterday total amount
-         const yesterdayAmount = async () => {
+        // yesterday total amount
+        const yesterdayAmount = async () => {
             try {
                 const response = await fetch('/yesterdayAmount');
                 const parsedData = await response.json();
@@ -294,7 +300,7 @@
 
                 console.log('form', formData);
 
-                
+
                 // Display the data in the dataContainer element
                 const dataContainer = document.getElementById('weekData');
 
@@ -315,7 +321,7 @@
                             <td id="totalAmount">${data.totalAmount}</td>
                             <td id="date">${data.date}</td>
                            
-
+                            <td id="date">${data.mode}</td>
                             <!-- <td><button onclick="deleteCustomer(${data.id})" class="btn bg-danger">Delete</button></td> -->
                             <!-- <td><a class="btn btn-primary" href="/editCustomer.html" role="button">Edit</a></td> -->
                         </tr>`;
@@ -339,8 +345,8 @@
         weekData()
 
 
-       // week total amount
-       const weekAmount = async () => {
+        // week total amount
+        const weekAmount = async () => {
             try {
                 const response = await fetch('/weekAmount');
                 const parsedData = await response.json();
@@ -359,9 +365,9 @@
             }
         };
 
-    window.addEventListener('DOMContentLoad', weekAmount)
-    weekAmount()
-       
+        window.addEventListener('DOMContentLoad', weekAmount)
+        weekAmount()
+
 
     </script>
 

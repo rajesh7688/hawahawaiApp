@@ -287,7 +287,6 @@ const createRestApi = app => {
         }
     });
 
-
     // sending database to checked in database
     app.post('/submitData', async (req, response) => {
         // Access the submitted data from the request body
@@ -297,8 +296,8 @@ const createRestApi = app => {
         const connection = await database.createConnection();
         try {
             const result = await connection.query(`
-            INSERT INTO checkedCustomers (name, email, member, amount, totalAmount, date, boardTime)
-            VALUES (${mysql.escape(submittedData.name)}, ${mysql.escape(submittedData.email)}, ${mysql.escape(submittedData.member)}, ${mysql.escape(submittedData.amount)}, ${mysql.escape(submittedData.totalAmount)}, ${mysql.escape(submittedData.date)}, ${mysql.escape(submittedData.boardTime)})
+            INSERT INTO checkedCustomers (name, email, member, amount, totalAmount, date, boardTime, mode)
+            VALUES (${mysql.escape(submittedData.name)}, ${mysql.escape(submittedData.email)}, ${mysql.escape(submittedData.member)}, ${mysql.escape(submittedData.amount)}, ${mysql.escape(submittedData.totalAmount)}, ${mysql.escape(submittedData.date)}, ${mysql.escape(submittedData.boardTime)}, ${mysql.escape(submittedData.mode)})
           `);
             response.json({ result: 'SUCCESS', message: 'Customer details inserted successfully.', alert: 'success' });
         } catch (e) {
@@ -341,8 +340,8 @@ const createRestApi = app => {
         const connection = await database.createConnection();
         try {
             const result = await connection.query(`
-            INSERT INTO billedCustomers (name, email, member, amount, totalAmount, date)
-            VALUES (${mysql.escape(submittedData.name)}, ${mysql.escape(submittedData.email)}, ${mysql.escape(submittedData.member)}, ${mysql.escape(submittedData.amount)}, ${mysql.escape(submittedData.totalAmount)}, ${mysql.escape(submittedData.date)})
+            INSERT INTO billedCustomers (name, email, member, amount, totalAmount, date, mode)
+            VALUES (${mysql.escape(submittedData.name)}, ${mysql.escape(submittedData.email)}, ${mysql.escape(submittedData.member)}, ${mysql.escape(submittedData.amount)}, ${mysql.escape(submittedData.totalAmount)}, ${mysql.escape(submittedData.date)}, ${mysql.escape(submittedData.mode)})
           `);
             response.json({ result: 'SUCCESS', message: 'Customer details inserted successfully.', alert: 'success' });
         } catch (e) {
@@ -402,7 +401,7 @@ const createRestApi = app => {
         }
     });
 
-    // total amount of current date
+    // total amount of current dateSS
     app.get('/sumBilledAmount', async (request, response) => {
         const connection = await database.createConnection();
 
