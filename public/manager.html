@@ -127,6 +127,7 @@
                             <td id="totalAmount" style="display: none;">${data.totalAmount}</td>
                             <td id="date" style="display: none;">${data.date}</td>
                             <td id="time" style="display: none;">${data.time}</td>
+                            <td id="mode" style="display: none;">${data.mode}</td>
                             <td id="">${diffHours}:${diffMinutes}:${diffSeconds}</td>
                             <td><button class="btn btn-primary check-in-btn" onclick="checkInButton(event), deleteCustomer(${data.id})">Check in</button></td>
                             <td><button class="btn btn-primary check-in-btn" onclick="cancelButton(event), deleteCustomer(${data.id})">Cancel</button></td>
@@ -241,6 +242,7 @@
             const amount = row.querySelector('#amount').textContent;
             const totalAmount = row.querySelector('#totalAmount').textContent;
             const date = row.querySelector('#date').textContent;
+            const mode = row.querySelector('#mode').textContent;
 
             const currentDate = new Date();
             const currentHours = currentDate.getHours();
@@ -257,6 +259,7 @@
                 totalAmount: totalAmount,
                 date: date,
                 boardTime: boardTime,
+                mode : mode,
             };
 
             sendData(data);
